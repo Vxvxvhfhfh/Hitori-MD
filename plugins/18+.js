@@ -11,14 +11,14 @@ handler.command = /^(filebokep)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = true
-handler.group = false
+handler.group = true
 handler.private = false
 
 handler.admin = false
 handler.botAdmin = false
 
 handler.fail = null
-handler.limit = 1
+handler.limit = 99
 
 export default handler
 
