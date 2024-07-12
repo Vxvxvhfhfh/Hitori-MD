@@ -4,22 +4,23 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, usedPrefix, command, text }) => {
 	
     let user = global.db.data.users[m.sender]
-    let SWORD = user.sword < 1
-    let ARMOR = user.armor < 1
-    let HEALT = user.health < 90
-    if (SWORD || ARMOR || HEALT) {
+    let CHAKRA = user.chakra < 100
+	let KUNAI = user.kunai < 5
+    let ENDURANCE = user.endurance < 100
+    let HEALT = user.health < 100
+    if ( CHAKRA || KUNAIL || ENDURANCE || HEALT) {
         const buttons = []
 
         console.log({SWORD, ARMOR, HEALT})
-        if (SWORD) buttons.push({buttonId: `.craft sword`, buttonText: {displayText: 'ᴄʀᴀғᴛ sᴡᴏʀᴅ'}, type: 1})
-        if (ARMOR) buttons.push({buttonId: `.craft armor`, buttonText: {displayText: 'ᴄʀᴀғᴛ ᴀʀᴍᴏʀ'}, type: 1})
-        if (HEALT) buttons.push({buttonId: `.heal`, buttonText: {displayText: 'ʜᴇᴀʟ'}, type: 1})
+        if (KUNAI) buttons.push({buttonId: `.craft kunai`, buttonText: {displayText: 'KUNAI'}, type: 5})
+        if (ARMOR) buttons.push({buttonId: `.craft endurance`, buttonText: {displayText: 'ENDURANCE'}, type: 100})
+        if (HEALT) buttons.push({buttonId: `.heal`, buttonText: {displayText: 'SANTE'}, type: 100})
         
         let lmao = item(user.sword * 1, user.armor * 1, user.health * 1, usedPrefix)
         if (buttons.length == 0) return m.reply(lmao)   
         const buttonMessage = {
-            contentText: `*${htki} DUNGEON ${htka}*`,
-            footerText: lmao,
+            contentText: `*${htki} SHINOBI WORLD ${htka}*`,
+            footerText: shinobi,
             buttons: buttons,
             headerType: 1
         }
